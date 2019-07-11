@@ -7,16 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lee</title>
     <style>
+        body {
+            background-image: url("./images/star.jpg")
+        }
+
+        p {
+            font-size: 24px;
+            color: pink;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
         span {
             display: block;
             width: 100%;
             height: 100%;
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <h1>这是我的主页</h1>
+    <p>这是小李的主页</p>
     <div>
         <input type="button" value="点击可以看个笑话" id="get">
         <span></span>
@@ -24,17 +38,21 @@
 
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
-    $('#get').click(function(){
-        alert('你四不四傻,真信?');
-        alert('好吧,看来你是真傻,那就给你讲个笑话吧~');
-        $.get({
-            url:"https://autumnfish.cn/api/joke",
-            success:function(res){
-                $('span').text(res);
-            } 
+        $('#get').click(function () {
+            alert('你四不四傻,真信?');
+            alert('好吧,看来你是真傻,那就给你讲个笑话吧~');
+            $.get({
+                url: "https://autumnfish.cn/api/joke",
+                success: function (res) {
+                    $('span').text(res);
+                }
+            });
+            function timeMsg (){
+                var t = setTimeout("alert('你笑了吗?笑,给老子笑~')",3000);
+            }
+            timeMsg();
         });
-    });
-    
+
     </script>
 </body>
 
